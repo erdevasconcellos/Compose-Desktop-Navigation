@@ -9,19 +9,21 @@ fun main() = application {
         title = "Navigation Compose (for Desktop and others)"
     ) {
 
-        //Añadimos un composable y lo marcamos como pantalla principal (isHome = true)
-        Navigator.addScreen(route = ScreensRoutes.MainScreen.route, isHome = true) {
-            MainScreen()
+
+        Navigator.run {
+
+            addScreen(route = ScreensRoutes.MainScreen.route, isHome = true) {
+                MainScreen()
+            }
+
+            addScreen(route = ScreensRoutes.DetailScreen.route) {
+                DetailScreen()
+            }
+
+            renderUI()
+
         }
-
-        //Añadimos la segunda pantalla
-        Navigator.addScreen(route = ScreensRoutes.DetailScreen.route) {
-            DetailScreen()
-        }
-
-        //Renderizamos la interfaz
-        Navigator.renderUI()
-
+        
     }
 }
 
